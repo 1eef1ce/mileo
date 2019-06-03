@@ -35,9 +35,9 @@ Main Components
   /* dark bg layer visible when the cart is open */
   content: '';
   position: fixed;
-  z-index: 1;
-  height: 100vh;
-  width: 100vw;
+  z-index: 10001;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -51,12 +51,11 @@ Main Components
   opacity: 1;
   visibility: visible;
 }
-
 .cd-cart-trigger,
 .cd-cart {
   position: fixed;
-  bottom: 20px;
-  right: 5%;
+  top: 94px;
+  right: 2.5%;
   -webkit-transition: -webkit-transform .2s;
   transition: -webkit-transform .2s;
   transition: transform .2s;
@@ -71,22 +70,23 @@ Main Components
 .empty .cd-cart-trigger, .empty
 .cd-cart {
   /* hide cart */
-  -webkit-transform: translateY(150px);
-      -ms-transform: translateY(150px);
-          transform: translateY(150px);
+  -webkit-transform: translateY(-150px);
+      -ms-transform: translateY(-150px);
+          transform: translateY(-150px);
 }
 @media only screen and (min-width: 1170px) {
   .cd-cart-trigger,
   .cd-cart {
-    bottom: 40px;
+    top: 30px;
+      right: 9%;
   }
 }
 
 .cd-cart-trigger {
   /* button that triggers the cart content */
-  z-index: 3;
-  height: 72px;
-  width: 72px;
+  z-index: 10003;
+  height: 50px;
+  width: 50px;
   /* replace text with image */
   text-indent: 100%;
   color: transparent;
@@ -96,7 +96,7 @@ Main Components
   /* used to create the cart/'X' icon */
   content: '';
   position: absolute;
-  left: 50%;
+  left: 30%;
   top: 50%;
   bottom: auto;
   right: auto;
@@ -131,14 +131,14 @@ Main Components
 .cd-cart-trigger .count {
   /* number of items indicator */
   position: absolute;
-  top: -10px;
-  right: -10px;
-  height: 28px;
-  width: 28px;
+  top: 12px;
+  right: 2px;
+  height: 20px;
+  width: 20px;
   background: #d7017d;
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: bold;
+  color: #fff;
+    font-family: "MullerRegular";
+  font-size: 1.2rem;
   border-radius: 50%;
   text-indent: 0;
   -webkit-transition: -webkit-transform .2s .5s;
@@ -196,7 +196,7 @@ Main Components
 
 .cd-cart {
   /* cart content */
-  z-index: 2;
+  z-index: 10002;
   width: 90%;
   max-width: 440px;
   height: 400px;
@@ -205,12 +205,12 @@ Main Components
 }
 .cd-cart .wrapper {
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 10002;
   overflow: hidden;
-  height: 72px;
-  width: 72px;
+  height: 0px;
+  width: 50px;
   -webkit-transition: height .4s .1s, width  .4s .1s;
   transition: height .4s .1s, width  .4s .1s;
   -webkit-transition-timing-function: cubic-bezier(0.67, 0.17, 0.32, 0.95);
@@ -220,7 +220,7 @@ Main Components
 }
 .cd-cart .footer {
   position: absolute;
-  z-index: 2;
+  z-index: 10002;
   left: 0;
   width: 100%;
 }
@@ -258,12 +258,14 @@ Main Components
   opacity: 1;
   visibility: visible;
 }
+.cart-open .cd-cart .checkout {
+    background: #d7017d;
+}
 .cd-cart .checkout {
   display: block;
   height: 72px;
   line-height: 72px;
-  margin-right: 72px;
-  background: #d7017d;
+
   color: rgba(255, 255, 255, 0);
   text-align: center;
   font-size: 1.8rem;
@@ -304,7 +306,7 @@ Main Components
 }
 .cd-cart .body {
   position: relative;
-  z-index: 1;
+  z-index: 10001;
   height: calc(100% - 72px);
   padding: 40px 30px 0;
   overflow: auto;
@@ -386,24 +388,25 @@ Main Components
   display: block;
 }
 .cd-cart h3 {
-    font-family: "MullerMedium";
-    color: #333;
-  width: 70%;
+    font-family: "MullerLight";
+    color: #6e6e6e;
+    text-transform: uppercase;
+  width: 75%;
   float: left;
     margin: 0 0 10px;
 }
 .cd-cart h3 a {
-  color: #333;
+  color: #6e6e6e;
 }
 .cd-cart h3 a:hover {
-  color: #333;
+  color: #6e6e6e;
     text-decoration: none;
 }
 .cd-cart .price {
     font-family: "MullerMedium";
     color: #d7017d;
   float: right;
-  width: 30%;
+  width: 25%;
   text-align: right;
 }
 .cd-cart .actions {
@@ -418,7 +421,7 @@ Main Components
 }
 .cd-cart .delete-item, .cd-cart .quantity {
   float: left;
-  color: #9b9b9b;
+  color: #333;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
     font-family: "MullerRegular";
@@ -442,7 +445,7 @@ Main Components
   /* switcher arrow for select element */
   content: '';
   position: absolute;
-  z-index: 1;
+  z-index: 10001;
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -466,11 +469,11 @@ Main Components
   border-radius: 0;
   font-size: 1.4rem;
   margin: 0;
-  color: #9b9b9b;
+  color: #333;
 }
 .cd-cart select:focus {
   outline: none;
-  color: #9b9b9b;
+  color: #333;
 }
 .cd-cart select::-ms-expand {
   /* hide default select arrow on IE */
@@ -545,10 +548,10 @@ Main Components
             animation: cd-item-move-down .3s;
   }
   .cd-cart .checkout {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   .cd-cart h3, .cd-cart .price {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 }
 
